@@ -1,0 +1,17 @@
+{% extends 'blogs/base.html' %}
+{% block title %}Blogs{% endblock title %}
+{% load static %}
+
+{% block content %}
+
+    {% for blog in blogs %}
+        <p><a href="{% url 'blogs:blog' blog.id %}">{{blog.title}}</a></p>
+        <a href="{% url 'blogs:delete_blog' blog.id %}"><button>delete</button></a>
+        <a href="{% url 'blogs:edit_blog' blog.id %}"><button>edit</button></a>
+    {% empty %}
+        <li>no blogs</li>
+        <p><a href="{% url 'blogs:new_blog' %}">Add blog</a></p>
+    {% endfor %}
+    <p><a href="{% url 'blogs:new_blog' %}">Add blog</a></p>
+
+{% endblock content %}

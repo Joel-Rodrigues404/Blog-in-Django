@@ -1,0 +1,15 @@
+{% extends 'blogs/base.html' %}
+
+{% block title %}New coment | {{blog}}{% endblock title %}
+
+
+{% block content %}
+
+    <p><a href="{% url 'blogs:blog' blog.id %}">Voltar para {{blog}}</a></p>
+    <p>add new coment</p>
+    <form action="{% url 'blogs:new_coment' blog.id %}" method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button name="submit">add coment</button>
+    </form>
+
+{% endblock content %}

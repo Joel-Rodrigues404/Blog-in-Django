@@ -1,0 +1,25 @@
+{% extends 'blogs/base.html' %}
+
+{% block title %}{{blog.title}}{% endblock title %}
+
+{% block content %}
+
+    <p>{{blog.id}}</p>
+    <p>{{blog.title}}</p>
+    <p>{{blog.text}}</p>
+    {% for coment in coment %}
+        <li>
+            <p>{{ coment.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ coment.coment|linebreaks }}</p>
+            <button><a href="{% url 'blogs:edit_coment' coment.id %}">Edit</a></button>
+            <button><a href="{% url 'blogs:delete_coment' coment.id %}">delete</a></button>
+        </li>
+    {% empty %}
+        <li>
+            There are no entries for this topics yet
+        </li>
+    {% endfor %}
+    <a href="{% url 'blogs:new_coment' blog.id %}"><button>add new Coment</button></a>
+
+{% endblock content %}
+

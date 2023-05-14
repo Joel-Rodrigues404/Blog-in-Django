@@ -1,0 +1,13 @@
+{% extends 'blogs/base.html' %}
+
+{% block title %}Edit {{coment}} | {{blog}}{% endblock title %}
+
+{% block content %}
+
+    <p><a href="{% url 'blogs:blog' blog.id %}">Voltar para {{blog}}</a></p>
+    <form action="{% url 'blogs:edit_coment' coment.id %}" method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button name="submit">save shanges</button>
+    </form>
+
+{% endblock content %}

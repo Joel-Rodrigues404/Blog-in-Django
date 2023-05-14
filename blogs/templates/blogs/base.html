@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <nav>
+        <p>
+            <a href="{% url 'blogs:index' %}">Index</a> |
+            {% if user.is_authenticated %}
+                hello {{user.username}} |
+                joel
+                <a href="{% url 'users:logout' %}">logout</a> 
+            {% else %}
+                <a href="{% url 'users:login' %}">login</a> |
+                <a href="{% url 'users:register' %}">Register</a> 
+            {% endif %}
+        </p>
+    </nav>
+    {% block content %}{% endblock content %}
+</body>
+</html>
