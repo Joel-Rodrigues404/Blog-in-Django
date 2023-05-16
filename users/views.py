@@ -2,9 +2,9 @@
 
 """ IMPORTAÇOES DE MODULOS QUE FORAM USADOS """
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
-from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.http import Http404, BadHeaderError
+from django.contrib import auth
 
 # Create your views here.
 
